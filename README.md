@@ -14,8 +14,16 @@ This repo contains the scripts that build a common testing interface to several 
 Usage
 --------------
 
-First, set variables in the run.sh. `PROGSPATH` is the directory containing the three libraries. 
+1.  set variables in the run.sh.
 
-Then, in the terminal, run `source run.sh algorithm image_id parameters_file`
+    `IMGPATH` contains *horizontally rectified* image pairs. Vertically rectified pairs (such as our staircase scenes) must be rotated 90 degrees before passing to stereo matching programs.
+    
+    `OUTPUTPATH` contains the output disparity maps. Each output is suffixed by the algorithm name used to generate it.
+    
+    `PROGSPATH` is the directory containing the three libraries.
+    
+    
+2.  Then, in the terminal, run `source run.sh algorithm image_id parameters_file`
 
-For example: `source run.sh elas 5 paramsELAS.txt` runs ELAS on image pair 5, using the parameters set in paramsELAS.txt.
+    For example: `source run.sh elas 5 paramsELAS.txt` runs ELAS on image pair 5, using the parameters set in paramsELAS.txt.
+
