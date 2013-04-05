@@ -17,7 +17,7 @@ Usage
 1.  Set variables in run.sh.
 
     `IMGPATH` contains *horizontally rectified* image pairs. 
-    Vertically rectified pairs (such as our staircase scenes) must be rotated 90 degrees before passing to stereo matching programs. Some algorithms are very slow for high-resolution images, in that case you can use [ImageMagick](http://www.imagemagick.org/Usage/) to shrink the images. For example: `convert $IMG -resize 25% $IMG_SMALL`.
+    Vertically rectified pairs (such as our staircase scenes) must be rotated 90 degrees before passing to stereo matching programs. You can use the command-line tools of [ImageMagick](http://www.imagemagick.org/Usage/) to do these kinds of simple transformation. For example: `convert $IMG -rotate 90 $IMG_ROT`. Some algorithms are very slow for high-resolution images, in that case you can shrink the images using, for example, `convert $IMG -resize 25% $IMG_SMALL`.
     
     `OUTPUTPATH` contains the output disparity maps. Each output is suffixed by the algorithm name used to generate it.
     
