@@ -1,0 +1,122 @@
+# exp4_aggr.txt
+
+# This script file lives in the subdirectory imagedirs/Scripts
+# and is called by 'exp_dispatch.txt', which in turn is called by 'exp_all.txt'
+
+# Experiment 4 in taxonomy paper:
+# compare different aggregation methods
+
+# use AD as matching cost, WTA optimization
+
+# aggregation methods:
+# - square windows with different window sizes
+# - square windows + minfilter with different window sizes
+# - binomial filter with different number of iterations
+# - diffusion with different different number of iterations
+# - membrane with different beta (fixed number of iter)
+ 
+reset
+
+eval_predict_type 0 # don't compute prediction errors
+eval_error_scale 0  # don't write _b and _e images
+
+##############################################################################
+
+match_fn 1 # absolute differences
+opt_fn 1   # WTA
+
+# SAD
+aggr_fn 1		# box filter
+aggr_iter 1
+aggr_minfilter 0
+
+depth_map results/SAD03.pgm aggr_window_size  3
+depth_map results/SAD05.pgm aggr_window_size  5
+depth_map results/SAD07.pgm aggr_window_size  7
+depth_map results/SAD09.pgm aggr_window_size  9
+depth_map results/SAD11.pgm aggr_window_size 11
+depth_map results/SAD13.pgm aggr_window_size 13
+depth_map results/SAD15.pgm aggr_window_size 15
+depth_map results/SAD17.pgm aggr_window_size 17
+depth_map results/SAD19.pgm aggr_window_size 19
+depth_map results/SAD21.pgm aggr_window_size 21
+depth_map results/SAD23.pgm aggr_window_size 23
+depth_map results/SAD25.pgm aggr_window_size 25
+depth_map results/SAD27.pgm aggr_window_size 27
+depth_map results/SAD29.pgm aggr_window_size 29
+
+# SAD with min filter
+aggr_fn 1		# box filter
+aggr_iter 1
+
+depth_map results/SADmf03.pgm aggr_window_size  3 aggr_minfilter  3
+depth_map results/SADmf05.pgm aggr_window_size  5 aggr_minfilter  5  
+depth_map results/SADmf07.pgm aggr_window_size  7 aggr_minfilter  7  
+depth_map results/SADmf09.pgm aggr_window_size  9 aggr_minfilter  9  
+depth_map results/SADmf11.pgm aggr_window_size 11 aggr_minfilter 11
+depth_map results/SADmf13.pgm aggr_window_size 13 aggr_minfilter 13
+depth_map results/SADmf15.pgm aggr_window_size 15 aggr_minfilter 15
+depth_map results/SADmf17.pgm aggr_window_size 17 aggr_minfilter 17
+depth_map results/SADmf19.pgm aggr_window_size 19 aggr_minfilter 19
+depth_map results/SADmf21.pgm aggr_window_size 21 aggr_minfilter 21
+depth_map results/SADmf23.pgm aggr_window_size 23 aggr_minfilter 23
+depth_map results/SADmf25.pgm aggr_window_size 25 aggr_minfilter 25
+depth_map results/SADmf27.pgm aggr_window_size 27 aggr_minfilter 27
+depth_map results/SADmf29.pgm aggr_window_size 29 aggr_minfilter 29
+
+#  binomial filter (1 4 6 4 1), different numbers of iterations
+aggr_fn 2		# binomial
+aggr_minfilter 0
+
+depth_map results/SADbf02.pgm aggr_iter  2
+depth_map results/SADbf04.pgm aggr_iter  4
+depth_map results/SADbf06.pgm aggr_iter  6
+depth_map results/SADbf08.pgm aggr_iter  8
+depth_map results/SADbf10.pgm aggr_iter 10
+depth_map results/SADbf12.pgm aggr_iter 12
+depth_map results/SADbf14.pgm aggr_iter 14
+depth_map results/SADbf16.pgm aggr_iter 18
+depth_map results/SADbf18.pgm aggr_iter 18
+depth_map results/SADbf20.pgm aggr_iter 20
+depth_map results/SADbf22.pgm aggr_iter 22
+depth_map results/SADbf24.pgm aggr_iter 24
+depth_map results/SADbf26.pgm aggr_iter 26
+depth_map results/SADbf28.pgm aggr_iter 28
+
+# regular diffusion, different numbers of iterations
+aggr_fn 3		# regular diffusion
+aggr_minfilter 0
+diff_lambda 0.15
+
+depth_map results/SADdiff010.pgm aggr_iter  10
+depth_map results/SADdiff020.pgm aggr_iter  20
+depth_map results/SADdiff030.pgm aggr_iter  30
+depth_map results/SADdiff040.pgm aggr_iter  40
+depth_map results/SADdiff050.pgm aggr_iter  50
+depth_map results/SADdiff060.pgm aggr_iter  60
+depth_map results/SADdiff070.pgm aggr_iter  70
+depth_map results/SADdiff080.pgm aggr_iter  80
+depth_map results/SADdiff090.pgm aggr_iter  90
+depth_map results/SADdiff100.pgm aggr_iter 100
+depth_map results/SADdiff110.pgm aggr_iter 110
+depth_map results/SADdiff120.pgm aggr_iter 120
+depth_map results/SADdiff130.pgm aggr_iter 130
+depth_map results/SADdiff140.pgm aggr_iter 140
+depth_map results/SADdiff150.pgm aggr_iter 150
+
+# membrane diffusion, different beta
+aggr_fn 4		# membrane diffusion
+aggr_minfilter 0
+diff_lambda 0.15
+aggr_iter 150	 # should be enough to converge
+
+depth_map results/SADmemb09.pgm diff_beta 0.9
+depth_map results/SADmemb08.pgm diff_beta 0.8
+depth_map results/SADmemb07.pgm diff_beta 0.7
+depth_map results/SADmemb06.pgm diff_beta 0.6
+depth_map results/SADmemb05.pgm diff_beta 0.5
+depth_map results/SADmemb04.pgm diff_beta 0.4
+depth_map results/SADmemb03.pgm diff_beta 0.3
+depth_map results/SADmemb02.pgm diff_beta 0.2
+depth_map results/SADmemb01.pgm diff_beta 0.1
+depth_map results/SADmemb00.pgm diff_beta 0.0   # should be same as SADdiff150

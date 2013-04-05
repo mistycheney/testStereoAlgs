@@ -1,0 +1,64 @@
+# exp2_costSSDMF9.txt
+
+# This script file lives in the subdirectory imagedirs/Scripts
+# and is called by 'exp_dispatch.txt', which in turn is called by 'exp_all.txt'
+
+
+# Experiment 2 in taxonomy paper:
+# compare different matching costs with local algorithm
+# (square 9x9 window and 9x9 minfilter)
+
+# 4 runs with matching costs: AD, AD+BT, SD, SD+BT
+# each run with truncation 1000, 50, 20, 10, 5, 2, 1
+ 
+reset
+
+eval_predict_type 0 # don't compute prediction errors
+eval_error_scale 0  # don't write _b and _e images
+
+aggr_window_size 9
+aggr_minfilter 9
+
+match_fn 1
+match_interval 0
+
+depth_map results/SADmf09.pgm    match_max  1000
+depth_map results/SADmf09t50.pgm match_max  50
+depth_map results/SADmf09t20.pgm match_max  20
+depth_map results/SADmf09t10.pgm match_max  10
+depth_map results/SADmf09t05.pgm match_max  5
+depth_map results/SADmf09t02.pgm match_max  2
+depth_map results/SADmf09t01.pgm match_max  1
+
+match_fn 2
+match_interval 0
+
+depth_map results/SSDmf09.pgm    match_max  1000
+depth_map results/SSDmf09t50.pgm match_max  50
+depth_map results/SSDmf09t20.pgm match_max  20
+depth_map results/SSDmf09t10.pgm match_max  10
+depth_map results/SSDmf09t05.pgm match_max  5
+depth_map results/SSDmf09t02.pgm match_max  2
+depth_map results/SSDmf09t01.pgm match_max  1
+
+match_fn 1
+match_interval 1 # Birchfield / Tomasi
+
+depth_map results/SADmf09b.pgm    match_max  1000
+depth_map results/SADmf09bt50.pgm match_max  50
+depth_map results/SADmf09bt20.pgm match_max  20
+depth_map results/SADmf09bt10.pgm match_max  10
+depth_map results/SADmf09bt05.pgm match_max  5
+depth_map results/SADmf09bt02.pgm match_max  2
+depth_map results/SADmf09bt01.pgm match_max  1
+
+match_fn 2
+match_interval 1 # Birchfield / Tomasi
+
+depth_map results/SSDmf09b.pgm    match_max  1000
+depth_map results/SSDmf09bt50.pgm match_max  50
+depth_map results/SSDmf09bt20.pgm match_max  20
+depth_map results/SSDmf09bt10.pgm match_max  10
+depth_map results/SSDmf09bt05.pgm match_max  5
+depth_map results/SSDmf09bt02.pgm match_max  2
+depth_map results/SSDmf09bt01.pgm match_max  1

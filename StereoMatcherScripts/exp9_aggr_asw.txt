@@ -1,0 +1,29 @@
+# exp_aggr_asw.txt
+
+# This script file is called by 'exp_dispatch.txt'
+
+# Applying the ASW(adaptive support-weight) method
+
+# use AD as matching cost, WTA optimization
+
+
+reset
+
+eval_predict_type 0 # don't compute prediction errors
+eval_error_scale 0  # don't write _b and _e images
+
+##############################################################################
+
+match_fn 1 # absolute differences
+opt_fn 1   # WTA
+
+# ASW
+aggr_fn 6		# asw	
+aggr_iter 1
+aggr_window_size 35
+aggr_gamma_proximity 17.5
+aggr_gamma_similarity 5.0
+aggr_color_space 2
+
+
+depth_map AD_asw_35.pgm

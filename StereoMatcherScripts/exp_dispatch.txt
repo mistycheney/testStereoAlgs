@@ -1,0 +1,19 @@
+# script-file to dispatch the different experiments in taxonomy paper
+
+# read the parameters specific to the current image sequence
+input_params param_in.txt
+
+#evaluate_only 1 # uncomment to re-evaluate previous experiments
+
+# edit the lines below to select which experiments to run
+
+#script ../exp0_groundtruth.txt
+script ../exp1_costSSD9.txt
+#script ../exp2_costSSDMF9.txt
+#script ../exp3_costGlobal.txt
+#script ../exp4_aggr.txt
+#script ../exp5_lambda.txt
+#script ../exp6_gc.txt
+#script ../exp7_bps.txt
+#script ../exp8_bpa.txt
+#script ../exp9_aggr_asw.txt

@@ -1,0 +1,26 @@
+# exp0_groundtruth.txt
+#
+# experiment for taxonomy paper
+
+# This script file lives in the subdirectory imagedirs/Scripts
+# and is called by 'exp_dispatch.txt', which in turn is called by 'exp_all.txt'
+
+# experiment 0: evaluate ground truth maps, and write out texture,
+# occlusion, and discontinuity maps
+
+#eval_predict_type 0 # skip prediction error
+#eval_predict_type 1 # use forward warping
+eval_predict_type 2 # inverse warping
+eval_error_scale 0  # don't write _b and _e images
+
+
+evaluate_only 1 # do not rewrite ground truth image
+verbose 25 # dump files
+
+#eval_empty_color 0x00ffc0ff # (ARGB) light pink
+eval_empty_color 0x00ffff70 # (ARGB) bright yellow
+depth_map results/groundtruth.pgm
+
+# reset these parameters to their default values for subsequent experiments
+evaluate_only 0
+verbose 2

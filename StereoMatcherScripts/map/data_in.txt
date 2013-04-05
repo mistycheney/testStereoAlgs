@@ -1,0 +1,2 @@
+input_file input/im0.pgm resampled_file reprojected/im0.pgm truth_file input/disp0.pgm
+input_file input/im1.pgm resampled_file reprojected/im1.pgm truth_file input/disp1.pgm

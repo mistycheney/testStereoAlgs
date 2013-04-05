@@ -1,0 +1,13 @@
+../mrfstereo -w -x tsukuba-imL.png tsukuba-imR.png tsukuba.png 
+Image size: 384 x 288, nDisp = 16
+Data term: absolute differences  
+Smoothness term: L1 norm, truncated at 2, lambda=20
+******* Running Expansion for up to 500 x 1 iterations
+writing runtimes to tsukuba-Expansion.csv
+Energy = 6913378 (Ed=6913378, Es=0) at start
+Energy = 1136475 (Ed=933535, Es=202940), 1.4 secs
+Energy = 1127636 (Ed=928436, Es=199200), 2.3 secs
+Energy = 1127347 (Ed=928607, Es=198740), 3.3 secs
+Energy = 1127237 (Ed=928697, Es=198540), 4.3 secs
+Energy = 1127237 (Ed=928697, Es=198540), 5.3 secs
+scaling disparities by 17

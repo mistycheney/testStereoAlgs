@@ -1,0 +1,5 @@
+input_file input/scene1.row3.col1.ppm resampled_file reprojected/im0.ppm
+input_file input/scene1.row3.col2.ppm resampled_file reprojected/im1.ppm
+input_file input/scene1.row3.col3.ppm resampled_file reprojected/im2.ppm truth_file input/truedisp.row3.col3.pgm
+input_file input/scene1.row3.col4.ppm resampled_file reprojected/im3.ppm
+input_file input/scene1.row3.col5.ppm resampled_file reprojected/im4.ppm

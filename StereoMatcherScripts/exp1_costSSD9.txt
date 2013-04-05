@@ -1,0 +1,64 @@
+# exp1_costSSD9.txt
+
+# This script file lives in the subdirectory imagedirs/Scripts
+# and is called by 'exp_dispatch.txt', which in turn is called by 'exp_all.txt'
+
+
+# Experiment 1 in taxonomy paper:
+# compare different matching costs with local algorithm
+# (square 9x9 window)
+
+# 4 runs with matching costs: AD, AD+BT, SD, SD+BT
+# each run with truncation 1000, 50, 20, 10, 5, 2, 1
+ 
+reset
+
+eval_predict_type 0 # don't compute prediction errors
+eval_error_scale 0  # don't write _b and _e images
+
+aggr_window_size 9
+aggr_minfilter 0
+
+match_fn 1
+match_interval 0
+
+depth_map results/SAD09.pgm    match_max  1000
+depth_map results/SAD09t50.pgm match_max  50
+depth_map results/SAD09t20.pgm match_max  20
+depth_map results/SAD09t10.pgm match_max  10
+depth_map results/SAD09t05.pgm match_max  5
+depth_map results/SAD09t02.pgm match_max  2
+depth_map results/SAD09t01.pgm match_max  1
+
+match_fn 2
+match_interval 0
+
+depth_map results/SSD09.pgm    match_max  1000
+depth_map results/SSD09t50.pgm match_max  50
+depth_map results/SSD09t20.pgm match_max  20
+depth_map results/SSD09t10.pgm match_max  10
+depth_map results/SSD09t05.pgm match_max  5
+depth_map results/SSD09t02.pgm match_max  2
+depth_map results/SSD09t01.pgm match_max  1
+
+match_fn 1
+match_interval 1 # Birchfield / Tomasi
+
+depth_map results/SAD09b.pgm    match_max  1000
+depth_map results/SAD09bt50.pgm match_max  50
+depth_map results/SAD09bt20.pgm match_max  20
+depth_map results/SAD09bt10.pgm match_max  10
+depth_map results/SAD09bt05.pgm match_max  5
+depth_map results/SAD09bt02.pgm match_max  2
+depth_map results/SAD09bt01.pgm match_max  1
+
+match_fn 2
+match_interval 1 # Birchfield / Tomasi
+
+depth_map results/SSD09b.pgm    match_max  1000
+depth_map results/SSD09bt50.pgm match_max  50
+depth_map results/SSD09bt20.pgm match_max  20
+depth_map results/SSD09bt10.pgm match_max  10
+depth_map results/SSD09bt05.pgm match_max  5
+depth_map results/SSD09bt02.pgm match_max  2
+depth_map results/SSD09bt01.pgm match_max  1

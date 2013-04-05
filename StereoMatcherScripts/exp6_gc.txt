@@ -1,0 +1,44 @@
+# exp6_gc.txt
+
+# This script file lives in the subdirectory imagedirs/Scripts
+# and is called by 'exp_dispatch.txt', which in turn is called by 'exp_all.txt'
+
+# Experiment 6 in taxonomy paper:
+# evaluate GC - lambda, BT, and gradient-dependent smoothness
+
+reset
+
+eval_predict_type 0 # don't compute prediction errors
+eval_error_scale 0  # don't write _b and _e images
+
+##############################################################################
+# GC (graph cut)
+aggr_iter 0
+opt_fn 4
+
+match_fn 1   # SAD
+match_interval 1 # Birchfield / Tomasi
+opt_smoothness   20
+
+#opt_grad_thresh 4
+#depth_map results/GCm1s0020bt04p2.pgm  opt_grad_penalty 2
+#depth_map results/GCm1s0020bt04p4.pgm  opt_grad_penalty 4
+
+opt_grad_thresh 8
+depth_map results/GCm1s0020b.pgm       opt_grad_penalty 1 # no penalty
+depth_map results/GCm1s0020bt08p2.pgm  opt_grad_penalty 2
+depth_map results/GCm1s0020bt08p4.pgm  opt_grad_penalty 4
+
+match_fn 1   # SAD
+match_interval 1 # Birchfield / Tomasi
+opt_smoothness   50
+
+#opt_grad_thresh 4
+#depth_map results/GCm1s0050bt04p2.pgm  opt_grad_penalty 2
+#depth_map results/GCm1s0050bt04p4.pgm  opt_grad_penalty 4
+
+opt_grad_thresh 8
+depth_map results/GCm1s0050b.pgm       opt_grad_penalty 1 # no penalty
+depth_map results/GCm1s0050bt08p2.pgm  opt_grad_penalty 2
+depth_map results/GCm1s0050bt08p4.pgm  opt_grad_penalty 4
+

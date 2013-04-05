@@ -1,0 +1,9 @@
+# edit this file to select which data sets to use
+
+# edit the script 'exp_dispatch.txt' to select which experiments to run
+
+verbose 2       # just the summary
+
+# Our stairs dataset
+cd stairs
+script ../exp_dispatch.txt

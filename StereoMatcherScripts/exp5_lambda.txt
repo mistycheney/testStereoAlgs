@@ -1,0 +1,98 @@
+# exp5_lambda.txt
+
+# This script file lives in the subdirectory imagedirs/Scripts
+# and is called by 'exp_dispatch.txt', which in turn is called by 'exp_all.txt'
+
+# Experiment 5 in taxonomy paper:
+# compare different values of lambda for global algorithms (DP, SO, GC, SA)
+
+# use absolute differences, WTA
+ 
+reset
+
+eval_predict_type 0 # don't compute prediction errors
+eval_error_scale 0  # don't write _b and _e images
+
+##############################################################################
+# DP
+match_fn 1   # SAD
+aggr_iter 0
+opt_fn 2
+
+opt_occlusion_cost 20
+depth_map results/DPm1o20s0005.pgm opt_smoothness    5
+depth_map results/DPm1o20s0010.pgm opt_smoothness   10
+depth_map results/DPm1o20s0020.pgm opt_smoothness   20
+depth_map results/DPm1o20s0050.pgm opt_smoothness   50
+depth_map results/DPm1o20s0100.pgm opt_smoothness  100
+depth_map results/DPm1o20s0200.pgm opt_smoothness  200
+depth_map results/DPm1o20s0500.pgm opt_smoothness  500
+depth_map results/DPm1o20s1000.pgm opt_smoothness 1000
+
+opt_occlusion_cost 50
+depth_map results/DPm1o50s0005.pgm opt_smoothness    5
+depth_map results/DPm1o50s0010.pgm opt_smoothness   10
+depth_map results/DPm1o50s0020.pgm opt_smoothness   20
+depth_map results/DPm1o50s0050.pgm opt_smoothness   50
+depth_map results/DPm1o50s0100.pgm opt_smoothness  100
+depth_map results/DPm1o50s0200.pgm opt_smoothness  200
+depth_map results/DPm1o50s0500.pgm opt_smoothness  500
+depth_map results/DPm1o50s1000.pgm opt_smoothness 1000
+
+opt_occlusion_cost 80
+depth_map results/DPm1o80s0005.pgm opt_smoothness    5
+depth_map results/DPm1o80s0010.pgm opt_smoothness   10
+depth_map results/DPm1o80s0020.pgm opt_smoothness   20
+depth_map results/DPm1o80s0050.pgm opt_smoothness   50
+depth_map results/DPm1o80s0100.pgm opt_smoothness  100
+depth_map results/DPm1o80s0200.pgm opt_smoothness  200
+depth_map results/DPm1o80s0500.pgm opt_smoothness  500
+depth_map results/DPm1o80s1000.pgm opt_smoothness 1000
+
+##############################################################################
+# SO (scan-line optimization)
+match_fn 1   # SAD
+aggr_iter 0
+opt_fn 3
+
+depth_map results/SOm1s0005.pgm opt_smoothness    5
+depth_map results/SOm1s0010.pgm opt_smoothness   10
+depth_map results/SOm1s0020.pgm opt_smoothness   20
+depth_map results/SOm1s0050.pgm opt_smoothness   50
+depth_map results/SOm1s0100.pgm opt_smoothness  100
+depth_map results/SOm1s0200.pgm opt_smoothness  200
+depth_map results/SOm1s0500.pgm opt_smoothness  500
+depth_map results/SOm1s1000.pgm opt_smoothness 1000
+
+##############################################################################
+# GC (graph cut)
+match_fn 1   # SAD
+aggr_iter 0
+opt_fn 4
+
+depth_map results/GCm1s0005.pgm opt_smoothness    5
+depth_map results/GCm1s0010.pgm opt_smoothness   10
+depth_map results/GCm1s0020.pgm opt_smoothness   20
+depth_map results/GCm1s0050.pgm opt_smoothness   50
+depth_map results/GCm1s0100.pgm opt_smoothness  100
+depth_map results/GCm1s0200.pgm opt_smoothness  200
+depth_map results/GCm1s0500.pgm opt_smoothness  500
+depth_map results/GCm1s1000.pgm opt_smoothness 1000
+
+##############################################################################
+# SA (simulated annealing)
+match_fn 1   # SAD
+aggr_iter 0
+opt_fn 5
+#opt_sa_start_T 0.01     # very low start temperature => gradient descent
+opt_sa_start_T 200     # reasonably high temperature => melt a little
+opt_max_iter 500
+
+depth_map results/SAm1s0005.pgm opt_smoothness    5
+depth_map results/SAm1s0010.pgm opt_smoothness   10
+depth_map results/SAm1s0020.pgm opt_smoothness   20
+depth_map results/SAm1s0050.pgm opt_smoothness   50
+depth_map results/SAm1s0100.pgm opt_smoothness  100
+depth_map results/SAm1s0200.pgm opt_smoothness  200
+depth_map results/SAm1s0500.pgm opt_smoothness  500
+depth_map results/SAm1s1000.pgm opt_smoothness 1000

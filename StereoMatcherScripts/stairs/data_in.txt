@@ -1,0 +1,2 @@
+input_file /Users/yuncong/Documents/workspace/StairsPointCloud/staircase_new/top5_rect_rot_small.pgm
+input_file /Users/yuncong/Documents/workspace/StairsPointCloud/staircase_new/bottom5_rect_rot_small.pgm

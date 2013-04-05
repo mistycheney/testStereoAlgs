@@ -1,0 +1,9 @@
+input_file input/im0.ppm resampled_file reprojected/im0.ppm
+input_file input/im1.ppm resampled_file reprojected/im1.ppm
+input_file input/im2.ppm resampled_file reprojected/im2.ppm truth_file input/disp2.pgm
+input_file input/im3.ppm resampled_file reprojected/im3.ppm
+input_file input/im4.ppm resampled_file reprojected/im4.ppm
+input_file input/im5.ppm resampled_file reprojected/im5.ppm
+input_file input/im6.ppm resampled_file reprojected/im6.ppm truth_file input/disp6.pgm
+input_file input/im7.ppm resampled_file reprojected/im7.ppm
+input_file input/im8.ppm resampled_file reprojected/im8.ppm

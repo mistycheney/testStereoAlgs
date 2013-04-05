@@ -1,0 +1,95 @@
+# exp3_costGlobal.txt
+
+# This script file lives in the subdirectory imagedirs/Scripts
+# and is called by 'exp_dispatch.txt', which in turn is called by 'exp_all.txt'
+
+# Experiment 3 in taxonomy paper:
+# compare different matching costs with global algorithms
+
+# three algorithms: DP, SO, GC
+# all run with smoothness = 20
+
+# each alg w/ 2 matching costs: AD, AD+BT
+# each run with truncation 1000, 50, 20, 10, 5, 2
+ 
+reset
+
+eval_predict_type 0 # don't compute prediction errors
+eval_error_scale 0  # don't write _b and _e images
+
+##############################################################################
+# DP
+aggr_iter 0
+opt_fn 2
+opt_occlusion_cost 20
+opt_smoothness   20
+
+match_fn 1   # SAD
+match_interval 0
+
+depth_map results/DPm1o20s0020.pgm    match_max  1000
+depth_map results/DPm1o20s0020t50.pgm match_max  50
+depth_map results/DPm1o20s0020t20.pgm match_max  20  
+depth_map results/DPm1o20s0020t10.pgm match_max  10  
+depth_map results/DPm1o20s0020t05.pgm match_max   5  
+depth_map results/DPm1o20s0020t02.pgm match_max   2
+
+match_fn 1
+match_interval 1 # Birchfield / Tomasi
+
+depth_map results/DPm1o20s0020b.pgm    match_max  1000
+depth_map results/DPm1o20s0020bt50.pgm match_max  50
+depth_map results/DPm1o20s0020bt20.pgm match_max  20  
+depth_map results/DPm1o20s0020bt10.pgm match_max  10  
+depth_map results/DPm1o20s0020bt05.pgm match_max   5  
+depth_map results/DPm1o20s0020bt02.pgm match_max   2
+
+##############################################################################
+# SO (scan-line optimization)
+aggr_iter 0
+opt_fn 3
+opt_smoothness   20
+
+match_fn 1   # SAD
+match_interval 0
+
+depth_map results/SOm1s0020.pgm    match_max  1000
+depth_map results/SOm1s0020t50.pgm match_max  50 
+depth_map results/SOm1s0020t20.pgm match_max  20
+depth_map results/SOm1s0020t10.pgm match_max  10 
+depth_map results/SOm1s0020t05.pgm match_max   5 
+depth_map results/SOm1s0020t02.pgm match_max   2 
+
+match_fn 1
+match_interval 1 # Birchfield / Tomasi
+
+depth_map results/SOm1s0020b.pgm    match_max  1000
+depth_map results/SOm1s0020bt50.pgm match_max  50 
+depth_map results/SOm1s0020bt20.pgm match_max  20
+depth_map results/SOm1s0020bt10.pgm match_max  10 
+depth_map results/SOm1s0020bt05.pgm match_max   5 
+depth_map results/SOm1s0020bt02.pgm match_max   2 
+
+##############################################################################
+# GC (graph cut)
+aggr_iter 0
+opt_fn 4
+opt_smoothness   20
+
+match_fn 1   # SAD
+match_interval 0
+
+depth_map results/GCm1s0020.pgm    match_max  1000
+depth_map results/GCm1s0020t50.pgm match_max  50  
+depth_map results/GCm1s0020t20.pgm match_max  20  
+depth_map results/GCm1s0020t10.pgm match_max  10  
+depth_map results/GCm1s0020t05.pgm match_max  5   
+
+match_fn 1
+match_interval 1 # Birchfield / Tomasi
+
+depth_map results/GCm1s0020b.pgm    match_max  1000
+depth_map results/GCm1s0020bt50.pgm match_max  50  
+depth_map results/GCm1s0020bt20.pgm match_max  20  
+depth_map results/GCm1s0020bt10.pgm match_max  10  
+depth_map results/GCm1s0020bt05.pgm match_max  5   

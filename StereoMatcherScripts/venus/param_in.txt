@@ -1,0 +1,12 @@
+frame_ref 2
+frame_match 6
+
+disp_min 0
+disp_max 19
+disp_scale 8
+
+input_data data_in.txt
+output_data data_out.txt
+
+eval_ignore_border 10
+eval_disp_gap 2
