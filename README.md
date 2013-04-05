@@ -30,5 +30,5 @@ Usage
     
 3.  Then, in the terminal, run `source run.sh algorithm image_id parameters_file_or_folder`
 
-    For example: `source run.sh elas 5 paramsELAS.txt` runs ELAS on image pair 5, using the parameters set in paramsELAS.txt.
+    For example: `source run.sh elas 5 paramsELAS.txt` runs ELAS on image pair 5, using the parameters set in paramsELAS.txt. Or, 
     `source run.sh sm 5 StereoMatcherScript` runs Middlebury StereoMatcher on image pair 5, using the control scripts in StereoMatcherScript.
