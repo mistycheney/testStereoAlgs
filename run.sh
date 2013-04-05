@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# You need to set these three variables
+############ You need to set these variables #############
 IMGPATH=/Users/yuncong/Documents/workspace/StairsPointCloud/staircase_new
 OUTPUTPATH=/Users/yuncong/Documents/workspace/StairsPointCloud/staircase_new_result
 PROGSPATH=/Users/yuncong/Documents/testStereoAlgs
+LEFTNAME=top${IMGID}_rect_rot_small
+RIGHTNAME=bottom${IMGID}_rect_rot_small
+###########################################################
 
 IMGID=$1
 ALG=$2
-LEFTNAME=top${IMGID}_rect_rot_small
-RIGHTNAME=bottom${IMGID}_rect_rot_small
-
 LEFTIMG=$IMGPATH/$LEFTNAME.pgm
 RIGHTIMG=$IMGPATH/$RIGHTNAME.pgm
 
