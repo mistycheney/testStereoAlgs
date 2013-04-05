@@ -24,6 +24,7 @@ Usage
     `PROGSPATH` is the directory containing the three libraries.
 
 2.  Edit parameters file.
+
     The parameters for ELAS and MRF can be set by editing respective txt file.
     Middlebury StereoMatcher relies on a directory of control scripts. The parameters are in stairs/param_in.txt and exp*_*.txt. The txt files in the corresponding output path seem to contain the complete parameter list.
     
