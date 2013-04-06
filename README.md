@@ -16,7 +16,7 @@ Usage
 
 1.  Compile the programs.
     
-    Source codes of the three libraries are in directories MRFStereo, StereoMatch and libelas. To compile them, just follow the instructions in respective READMEs. Try removing CMakeCache.txt if there are problems with build.
+    Source codes of the three libraries are in directories MRFStereo, StereoMatch and libelas. To compile them, just follow the instructions in respective READMEs.
 
 2.  Set variables in run.sh.
 
